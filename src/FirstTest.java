@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 
 public class FirstTest {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 
 		System.setProperty("webdriver.chrome.driver", "/Users/srinivaskamble/eclipse-workspace/Selenium/Drivers/chromedriver");
 		WebDriver driver=new ChromeDriver();
@@ -13,6 +13,7 @@ public class FirstTest {
 		driver.manage().window().maximize();
 		driver.get("https://www.facebook.com");
 		System.out.println(driver.getTitle());
+		Thread.sleep(3000);		
 		driver.quit();
 	}
 
