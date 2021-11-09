@@ -8,21 +8,40 @@ import org.testng.annotations.Test;
 public class CreatAccount extends Setup {
 	
 	@Test
-	public void createAccountWithValiddata()
+	public void createAccountWithValiddata() throws InterruptedException
 	
 	{   
 	
-		//Tap on Country drop down
-		//driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		driver.findElement(By.cssSelector("#__next > div > div > div > div.css-1dbjc4n.r-kemksi.r-6koalj.r-1oknz3f > div > div.css-1dbjc4n.r-1awozwy.r-3pxcvb.r-qklmqi.r-1loqt21.r-18u37iz.r-1x35g6.r-1pi2tsx.r-1777fci.r-4wgw6l.r-mzo9nz.r-1otgn73.r-1i6wzkk.r-lrvibr.r-1qho19y > div.css-901oao.r-jwli3a.r-1x35g6.r-majxgm.r-zso239")).click();
+		//Enter Valid number
+		/*driver.findElement(By.xpath("//*[@id=\"__next\"]/div/div/div/div[2]/div/div[2]/input")).sendKeys("9988776655");
 		
-		//Search country code
-		driver.findElement(By.xpath("/html/body/div[2]/div/div/div[1]/input")).sendKeys("ind");
+		Thread.sleep(3000);
+		driver.quit();*/
 		
-		//Tap on india
-		Actions action= new Actions(driver);
-		WebElement element=driver.findElement(By.xpath("/html/body/div[2]/div/div/div[2]/div/div/div[1]/div[1]/div/div[2]/div"));
+
+		//Launch website
+		driver.get("https://lottery-dubai-o229b4zcz-lucky7.vercel.app/register");
+		System.out.println(driver.getTitle());
+		
+		//Click on the country
+		driver.findElement(By.xpath("//*[@id=\"__next\"]/div/div/div/div[2]/div[1]/div[2]")).click();
+	
+		//Search for country
+		driver.findElement(By.xpath("/html/body/div[3]/div/div/div[1]/input")).sendKeys("ind");
+		
+		//Click on the country
+		Actions action=new Actions(driver);
+		WebElement element=driver.findElement(By.xpath("/html/body/div[3]/div/div/div[2]/div/div/div[1]/div[1]/div/div[2]/div"));
 		action.moveToElement(element).click().perform();
+		
+		//Enter Mobile number
+		driver.findElement(By.xpath("//*[@id=\"__next\"]/div/div/div/div[2]/div[2]/input")).sendKeys("7353692665");
+				
+		//Select Check box
+		driver.findElement(By.xpath("//*[@id=\"__next\"]/div/div/div/div[3]/div[1]/div[1]/div/div")).click();
+		
+		//Click on the create account button
+		driver.findElement(By.xpath("//*[@id=\"__next\"]/div/div/div/div[4]")).click();
 		
 	}
 
