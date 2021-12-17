@@ -53,6 +53,11 @@ public class TestAllScripts extends Setup {
 		
 	}
 	
+	@Test(priority = 3)
+	public void verifyProfileScreen() {
+		
+	}
+	
 	
 	@AfterTest
 	public void closeBrowser() 
